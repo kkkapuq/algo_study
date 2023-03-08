@@ -1,41 +1,35 @@
-# design: make bond count btw two node
-# nodes are 1~n indexed
-# edges are given as parent-child relationship (there are m edges)
-#  parent
-# |     |
-# ch    ch
-# |    / |
-# ch  ch ch
 import sys
 
+sys.setrecursionlimit(int(1e6))
 si = sys.stdin.readline
+
 n = int(si().strip())
-a, b = map(int, si().strip().split())
-m = int(si().strip())
-g = [[] for _ in range(n + 1)]
-for _ in range(m):
-    p, ch = map(int, si().strip().split())
-    g[p].append(ch)
+g = [[0] * (n + 1) for _ in range(n + 1)]
+n1, n2 = map(int, si().strip().split())
+k = int(si().strip())
+for _ in range(k):
+    c1, c2 = map(int, si().strip().split())
+    g[c1][c2] = 1
+    g[c2][c1] = 1
+visit = [0] * (n + 1)
 
 
-def solution():
-    p1, d1 = find_parent(a, 0)
-    p2, d2 = find_parent(b, 0)
-    if p1 == p2:
-        print(d1 + d2)
-        return
-    else:
-        print(-1)
-        return
-
-
-def find_parent(node, level):
-    global g
+def dfs(s, dist):
+    global n1, n2, visit
     for i in range(1, n + 1):
-        if node in g[i]:
-            return find_parent(i, level + 1)
-    return node, level
+        if g[s][i] and not visit[i]:
+            if i == n2:
+                return dist+1
+            visit[i] = 1
+            ks = dfs(i, dist + 1)
+            if ks != -1:
+                return ks
+    return -1
 
 
-if __name__ == "__main__":
-    solution()
+visit[n1] = 1
+ret = dfs(n1, 0)
+if ret == -1:
+    print(-1)
+else:
+    print(ret)
