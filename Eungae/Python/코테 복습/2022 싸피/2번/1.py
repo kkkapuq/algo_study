@@ -51,6 +51,6 @@ for d in range(N): # X와의 거리가 d인 두 위치를 확인하자.
     if X - d >= 0 and solve(X - d): # 왼쪽으로 d만큼 떨어진 X - d 위치
         print(d)
         break
-    if X - d < N and solve(X + d): # 오른쪽으로 d만큼 떨어진 X + d 위치
+    if X + d < N and solve(X + d): # 오른쪽으로 d만큼 떨어진 X + d 위치
         print(d)
         break
