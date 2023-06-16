@@ -42,7 +42,7 @@ def end():
 
 cnt = 1 
 while not end():
-    for _ in range(cnt):
+    for _ in range(moveNum):
         grid[r][c] = cnt
         cnt += 1
 
