@@ -5,12 +5,13 @@ def recursion(n):
     print(' '.join(temp))
     recursion(n-1)
 
-def recursion2(n):
-    if n == 5:
+def recursion2(a):
+    global n
+    if a == n+1:
         return
-    temp = ['*' for _ in range(n)]
+    temp = ['*' for _ in range(a)]
     print(' '.join(temp))
-    recursion2(n+1)
+    recursion2(a+1)
 
 n = int(input())
 recursion(n)
