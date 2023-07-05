@@ -26,7 +26,7 @@ def vertical(a, b):
         for j in range(3):
             if not (arr[j][i] == a or arr[j][i] == b):
                 flag = False
-            if arr[i][j] == a or arr[i][j] == b:
+            if arr[j][i] == a or arr[j][i] == b:
                 team.add(arr[j][i])
         if flag and len(team) == 2:
             return True
