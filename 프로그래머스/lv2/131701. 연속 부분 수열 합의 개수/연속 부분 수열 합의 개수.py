@@ -4,7 +4,7 @@
 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/131701
 '''
 def solution(elements):
-    answer = []
+    answer = set()
     n = len(elements)
     
     elements = elements + elements[:-1]
@@ -13,8 +13,7 @@ def solution(elements):
     
     for i in range(n):
         for j in range(n):
-            answer.append(sum(elements[j:j+i+1]))
-    answer = set(answer)
+            answer.add(sum(elements[j:j+i+1]))
     
     return len(answer)
 
