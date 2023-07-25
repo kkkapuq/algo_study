@@ -1,4 +1,5 @@
-package codetree.brute_force_II;
+package codetree.novice_mid.brute_force_II;
+
 
 import java.util.Scanner;
 
