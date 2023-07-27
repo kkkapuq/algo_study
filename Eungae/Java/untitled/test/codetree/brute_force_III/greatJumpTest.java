@@ -1,5 +1,6 @@
-package codetree.novice_mid.brute_force_III;
+package codetree.brute_force_III;
 
+import codetree.novice_mid.brute_force_III.greatJump;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
