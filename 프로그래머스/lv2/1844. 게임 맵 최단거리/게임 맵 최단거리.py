@@ -6,7 +6,7 @@ def solution(maps):
     dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
     q = deque()
     n, m = len(maps), len(maps[0])
-    q.append((0, 0))
+    q.append((n-1, m-1))
     
     while q:
         x, y = q.popleft()
@@ -28,7 +28,7 @@ def solution(maps):
                 q.append((nx, ny))
                 # 내가 다음에 갈곳(nx, ny)는 현재 위치(x, y) 거리의 +1 해서 갱신해준다.
                 maps[nx][ny] = maps[x][y] + 1
-    answer = maps[n-1][m-1]
+    answer = maps[0][0]
     
     
     return -1 if answer == 1 else answer
