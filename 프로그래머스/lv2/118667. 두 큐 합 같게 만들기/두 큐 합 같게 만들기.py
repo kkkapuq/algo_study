@@ -22,7 +22,7 @@ def solution(q1, q2):
             q1.append(temp)
         else:
             break
-        # q의 크기만큼 반복했는데 안된다는건 다 해봐도 안된다는 뜻임
+        # q1의 길이만큼 + q2의 길이만큼 반복했는데 안된다는건 다 해봐도 안된다는 뜻임
         if answer == len(q1)*2:
             return -1
     
