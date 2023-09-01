@@ -1,12 +1,22 @@
-def dfs(v, graph, visited, isCut):
+'''
+문제 : 전력망을 둘로 나누기
+난이도 : 레벨 2
+링크 : https://school.programmers.co.kr/learn/courses/30/lessons/86971
+'''
+from collections import deque
+def bfs(start, graph, visited, isCut):
     cnt = 1
-    visited[v] = True
+    visited[start] = True
     
-    for i in graph[v]:
-        # 방문한 적이 없고, a-b로 끊겨져 있는 선이 아니라면 탐색
-        if not isCut[v][i] and not visited[i]:
-            cnt += dfs(i, graph, visited, isCut)
-    
+    q = deque([start])
+    while q:
+        v = q.popleft()
+
+        for i in graph[v]:
+            if not isCut[v][i] and not visited[i]:
+                q.append(i)
+                visited[i] = True
+                cnt += 1
     return cnt
 
 def solution(n, wires):
@@ -25,8 +35,8 @@ def solution(n, wires):
         
         # a - b 송전탑 끊기
         isCut[a][b] = True
-        aCnt = dfs(a, graph, visited, isCut)
-        bCnt = dfs(b, graph, visited, isCut)
+        aCnt = bfs(a, graph, visited, isCut)
+        bCnt = bfs(b, graph, visited, isCut)
         # 끊은거 복구
         isCut[a][b] = False
         answer = min(answer, abs(aCnt - bCnt))
