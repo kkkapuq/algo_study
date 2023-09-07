@@ -30,14 +30,14 @@ def dfs(r, c, cnt):
 for _ in range(k):
     x1, y1, x2, y2 = map(int, se().split())
     # 이렇게 하면 모양이 상하 반전이 됨. 이 문제에선 무관할듯..?
-    # for i in range(y1, y2):
-    #     for j in range(x1, x2):
-    #         graph[i][j] = 1
-
-    # 모양 그대로 유지하고 싶다면 이렇게
-    for i in range(m - y2, m - y1):
+    for i in range(y1, y2):
         for j in range(x1, x2):
             graph[i][j] = 1
+
+    # 모양 그대로 유지하고 싶다면 이렇게
+    # for i in range(m - y2, m - y1):
+    #     for j in range(x1, x2):
+    #         graph[i][j] = 1
 
 sizes = []
 for i in range(m):
