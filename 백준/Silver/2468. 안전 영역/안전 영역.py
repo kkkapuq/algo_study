@@ -24,7 +24,7 @@ for i in graph:
         minH = min(minH, j)
         maxH = max(maxH, j)
 
-answer = 0
+answer = 1
 
 dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
 
