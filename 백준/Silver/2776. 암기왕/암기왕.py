@@ -2,13 +2,16 @@ import sys
 
 se = sys.stdin.readline
 
-t = int(se())
-for _ in range(t):
-    n = int(se())
-    set1 = set(map(int, se().split()))
+t = int(se().strip())
+for i in range(t):
+    set1 = set()
+    n = int(se().strip())
+    s = se().split()
+    for j in s:
+        set1.add(j)
 
-    m = int(se())
-    s = list(map(int, se().split()))
+    m = int(se().strip())
+    s = se().split()
 
     for j in s:
         if j in set1:
