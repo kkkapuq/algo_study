@@ -1,32 +1,28 @@
 from collections import deque
+
 n, m = map(int, input().split())
 
-graph = []
-for _ in range(n):
-    graph.append(list(map(int, input())))
+grid = []
+for i in range(n):
+    grid.append(list(map(int, input())))
 
-dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
+dr, dc = [-1, 1, 0, 0], [0, 0, -1, 1]
 
+# bfs
 def bfs(r, c):
+    global cnt
     q = deque([(r, c)])
     while q:
-        x, y = q.popleft()
-
+        r, c = q.popleft()
         for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-
-            # 범위를 벗어날 경우 제외
-            if nx < 0 or nx > n-1 or ny < 0 or ny > m-1:
+            nr, nc = r + dr[i], c + dc[i]
+            if nr < 0 or nr > n-1 or nc < 0 or nc > m-1:
                 continue
-
-            # 벽인 경우 제외
-            if graph[nx][ny] == 0:
+            elif grid[nr][nc] != 1:
                 continue
-
-            if graph[nx][ny] == 1:
-                graph[nx][ny] = graph[x][y] + 1
-                q.append((nx, ny))
-
+            else:
+                grid[nr][nc] = grid[r][c] + 1
+                q.append((nr, nc))
+    
 bfs(0, 0)
-print(graph[-1][-1])
+print(grid[n-1][m-1])
