@@ -1,27 +1,14 @@
-'''
-문제 : 회전 초밥
-난이도 : 실버 1
-소요 시간 : 
-'''
 import sys
-from collections import deque
-se = sys.stdin.readline
+input = sys.stdin.readline
 
-n, d, k, c = map(int, se().split())
-sushi = [ int(se().rstrip()) for _ in range(n) ]
-# 시간단축을 위한 덱 사용
-# sushi = deque(sushi)
-
-answer = 0
-
-# 슬라이딩 윈도우 사용
-for i in range(n):
-    temp = set(sushi[:k])
-
-    temp.add(c)
-    answer = max(answer, len(temp))
-    
-    l = sushi.pop(0)
-    sushi.append(l)
-
-print(answer)
+N, d, k, c = map(int, input().rstrip().split())
+sushi = [int(input()) for _ in range(N)]
+max_number_of_type = 0
+for i in range(N):
+    if i+k > N:
+        number_of_type = len(set(sushi[i:N] + sushi[:(i+k)%N] + [c]))
+    else:
+        number_of_type = len(set(sushi[i:i+k] + [c]))
+    if max_number_of_type < number_of_type:
+        max_number_of_type = number_of_type
+print(max_number_of_type)
