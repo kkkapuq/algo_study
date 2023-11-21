@@ -13,17 +13,22 @@ public class Main {
                 .mapToInt(Integer::parseInt)
                 .toArray();
 
-        // 투포인터로 풀어보자
-        int l = 0, r = k;
+        // 슬라이딩 윈도우로 풀 수는 있는데, 투포인터로 풀어보자.
+        int l = 0, r = k-1;
         // 정답 초기화
-        int tempSum = Arrays.stream(arr, l, r).sum();
+        int tempSum = Arrays.stream(arr, l, r+1).sum();
         int answer = tempSum;
 
+        // 다음 계산을 하기 위한 인덱스 당겨주기
+        l++;
+        r++;
         while(r < n){
-            // 다음 r 포인터 값을 더해주고, 이전에 있던 l값은 빼준다.
-            tempSum += arr[r++];
-            tempSum -= arr[l++];
+            tempSum += arr[r];
+            tempSum -= arr[l-1];
             answer = Math.max(answer, tempSum);
+
+            l++;
+            r++;
         }
         System.out.println(answer);
     }
