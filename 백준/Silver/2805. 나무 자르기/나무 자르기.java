@@ -21,7 +21,6 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
             r = Math.max(r, arr[i]);
         }
-
         while(l < r){
             // 기준을 잡을 mid 값
             int mid = (l+r) / 2;
