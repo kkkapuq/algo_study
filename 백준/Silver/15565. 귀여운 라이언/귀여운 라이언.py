@@ -9,7 +9,7 @@ se = sys.stdin.readline
 n, k = map(int, se().split())
 arr = list(map(int, se().split()))
 l, r = 0, 0
-answer = 10000001
+answer = 1000001
 
 # k가 1일 땐 값이 하나라도 있으면 1임. 바로 종료.
 if k == 1:
@@ -42,4 +42,4 @@ while r < n:
         if r < n and arr[r] == 1:
             cnt += 1
 
-print(-1 if answer == 10000001 else answer)
+print(-1 if answer == 1000001 else answer)
