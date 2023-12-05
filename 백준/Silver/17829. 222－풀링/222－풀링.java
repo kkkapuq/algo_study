@@ -20,39 +20,32 @@ public class Main {
             }
         }
         // 데이터 입력 끝
-
-        // arr를 2배씩 줄여나간다.
-        for(int i = n; i > 1; i/=2){
-            // 8x8 배열을 4x4 배열에 저장해주기 위한 temp 배열 초기화
-            int r = 0, c = 0;
-            splitArr = new int[i/2][i/2];
-            for(int j = 0; j < i; j+=2){
-                int[] temp = new int[i/2];
-                for(int k = 0; k < i; k+=2){
-                    temp[c] = getSecondNumber(j, k);
-                    c++;
-                    if(c == i/2){
-                        splitArr[r] = temp;
-                        r++;
-                        c = 0;
-                    }
-                }
-            }
-            arr = splitArr.clone();
-        }
-        System.out.println(arr[0][0]);
+        System.out.println(getSecondNumber(0, 0, n));
     }
 
     // 두 번째로 큰 값 return
-    public static int getSecondNumber(int r, int c){
-        int first = -10001, second = -10001;
-        Queue<Integer> q = new PriorityQueue(Collections.reverseOrder());
-        for(int i = r; i < r+2; i++){
-            for(int j = c; j < c+2; j++){
-                q.add(arr[i][j]);
-            }
+    public static int getSecondNumber(int r, int c, int size){
+        int mid = size / 2;
+        int[] temp = new int[4];
+        if(size == 2){
+            temp[0] = arr[r][c];
+            temp[1] = arr[r+1][c];
+            temp[2] = arr[r][c+1];
+            temp[3] = arr[r+1][c+1];
+            Arrays.sort(temp);
+            return temp[2];
         }
-        q.poll();
-        return q.poll();
+        // 좌상단, 우상단, 좌하단, 우하단 역할의 4개 int값을 놓고, 재귀함수를 돌린다.
+        int lt = getSecondNumber(r, c, mid);
+        int rt = getSecondNumber(r, c+mid, mid);
+        int lb = getSecondNumber(r+mid, c, mid);
+        int rb = getSecondNumber(r+mid, c+mid, mid);
+        // 위에 mid==2 랑 동일한 로직
+        temp[0] = lt;
+        temp[1] = rt;
+        temp[2] = lb;
+        temp[3] = rb;
+        Arrays.sort(temp);
+        return temp[2];
     }
 }
