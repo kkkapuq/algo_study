@@ -10,7 +10,7 @@ dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
 def dfs(r, c, cnt):
     graph[r][c] = 0
     if r < 0 or r >= n or c < 0 or c >= n:
-        return
+        return cnt
     
     for i in range(4):
         nx, ny = r + dx[i], c + dy[i]
@@ -18,8 +18,6 @@ def dfs(r, c, cnt):
         if nx < 0 or nx >= n or ny < 0 or ny >= n:
             continue
         if graph[nx][ny] == 1:
-            # 방문한 곳은 0으로 넣어서 방문처리
-            graph[nx][ny] = 0
             cnt = dfs(nx, ny, cnt+1)
     return cnt
 for i in range(n):
