@@ -3,6 +3,11 @@ package codetree.intermidiate_low.backtracking.beautiful_number;
 import java.util.*;
 import java.io.*;
 
+/**
+ * 문제 : 아름다운 수
+ * 소요시간 : 30분
+ * 링크 : https://www.codetree.ai/missions/2/problems/beautiful-number/description
+ */
 public class Main {
     public static List<Integer> list = new ArrayList<>();
     public static int N;

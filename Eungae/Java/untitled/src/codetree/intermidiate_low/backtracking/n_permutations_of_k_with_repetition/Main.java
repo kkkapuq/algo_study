@@ -3,6 +3,11 @@ package codetree.intermidiate_low.backtracking.n_permutations_of_k_with_repetiti
 import java.util.*;
 import java.io.*;
 
+/**
+ * 문제 : k개중에 1개를 n번 뽑기
+ * 소요시간 : 25분
+ * 링크 : https://www.codetree.ai/missions/2/problems/n-permutations-of-k-with-repetition/description
+ */
 public class Main {
     public static int K;
     public static int N;

@@ -3,6 +3,11 @@ package codetree.intermidiate_low.backtracking.strong_explosion;
 import java.util.*;
 import java.io.*;
 
+/**
+ * 문제 : 강력한 폭발
+ * 소요시간 : 1시간 4분
+ * 링크 : https://www.codetree.ai/missions/2/problems/strong-explosion/description
+ */
 public class Main {
     public static int N;
     public static int K = 0;
