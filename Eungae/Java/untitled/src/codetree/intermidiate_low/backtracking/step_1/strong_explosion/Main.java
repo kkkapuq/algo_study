@@ -1,4 +1,4 @@
-package codetree.intermidiate_low.backtracking.strong_explosion;
+package codetree.intermidiate_low.backtracking.step_1.strong_explosion;
 
 import java.util.*;
 import java.io.*;

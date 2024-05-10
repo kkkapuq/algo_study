@@ -1,4 +1,4 @@
-package codetree.intermidiate_low.backtracking.beautiful_number;
+package codetree.intermidiate_low.backtracking.step_1.beautiful_number;
 
 import java.util.*;
 import java.io.*;

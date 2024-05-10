@@ -1,4 +1,4 @@
-package codetree.intermidiate_low.backtracking.n_permutations_of_k_with_repetition;
+package codetree.intermidiate_low.backtracking.step_1.n_permutations_of_k_with_repetition;
 
 import java.util.*;
 import java.io.*;
