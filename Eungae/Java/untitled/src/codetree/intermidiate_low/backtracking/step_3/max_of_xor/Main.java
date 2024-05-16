@@ -4,7 +4,9 @@ import java.util.*;
 import java.io.*;
 
 /**
- * 문제 :
+ * 문제 : xor 결과 최대 만들기
+ * 소요 시간 : 1시간
+ * 링크 : https://www.codetree.ai/missions/2/problems/max-of-xor/description
  */
 public class Main {
     public static int N, M;
