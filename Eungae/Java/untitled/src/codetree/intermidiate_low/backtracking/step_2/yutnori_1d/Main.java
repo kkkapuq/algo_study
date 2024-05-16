@@ -2,7 +2,7 @@ package codetree.intermidiate_low.backtracking.step_2.yutnori_1d;
 
 /**
  * 문제 : 1차원 윷놀이
- * 소요 시간 :
+ * 소요 시간 : 30분
  * 링크 : https://www.codetree.ai/missions/2/problems/yutnori-1d/description
  */
 import java.util.*;
