@@ -2,29 +2,25 @@ import java.util.*;
 
 class Solution {
     public int solution(int[][] targets) {
-        double cur = -1;
-        int answer = 0;
-
-        // 2차원 배열을 List<List<Integer>>으로 변환
-        List<List<Integer>> targetList = new ArrayList<>();
-        for (int[] target : targets) {
-            List<Integer> tempList = new ArrayList<>();
-            for (int value : target) {
-                tempList.add(value);
-            }
-            targetList.add(tempList);
+        int answer = 1;
+        
+        // 끝지점 기준 오름차순 정렬
+        Arrays.sort(targets, (a, b) -> Integer.compare(a[1], b[1]));
+        // System.out.println(Arrays.deepToString(targets));
+        
+        double pos = targets[0][1]-0.5;
+        
+        for(int i = 0; i < targets.length; i++){
+            int start = targets[i][0];
+            int end = targets[i][1];
+            // System.out.println(i+1 + " 번 째 pos 값 = " + pos);
+            if(start < pos && pos < end)
+                continue;
+            answer++;
+            pos = end - 0.5;
+            // System.out.println("현재 미사일 수 :" + answer);
         }
-
-        // 두 번째 열을 기준으로 오름차순 정렬
-        Collections.sort(targetList, Comparator.comparingInt(list -> list.get(1)));
-
-        for (List<Integer> target : targetList) {
-            if (cur < target.get(0)) {
-                answer++;
-                cur = target.get(1) - 0.5;
-            }
-        }
-
+        
         return answer;
     }
 }
