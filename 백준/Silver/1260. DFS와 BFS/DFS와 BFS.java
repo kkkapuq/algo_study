@@ -33,11 +33,11 @@ class Main {
 
     public static void bfs(int start) {
         visited[start] = true;
-        Queue<Integer> deque = new LinkedList<>();
+        Deque<Integer> deque = new ArrayDeque<>();
         deque.add(start);
 
         while(!deque.isEmpty()) {
-            int temp = deque.poll();
+            int temp = deque.pollFirst();
             sb.append(temp + " ");
             for(int i = 0; i < graph.get(temp).size(); i++){
                 int t = graph.get(temp).get(i);
