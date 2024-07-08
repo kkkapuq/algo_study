@@ -28,18 +28,16 @@ public class Main {
 
             // bfs가 1회 끝나고 나면, 정렬을 통해 시작위치를 재설정한다.
             // 값 내림차순, 행 오름차순, 열 오름차순 으로 진행
-            Collections.sort(list, new Comparator<int[]>(){
-                @Override
-                public int compare(int[] a, int[] b) {
-                    if(a[0] != b[0]) {
-                        return Integer.compare(b[0], a[0]);
-                    } else if(a[1] != b[1]) {
-                        return Integer.compare(a[1], b[1]);
-                    } else {
-                        return Integer.compare(a[2], b[2]);
-                    }
+            Collections.sort(list, (a, b) -> {
+                if(a[0] != b[0]) {
+                    return Integer.compare(b[0], a[0]);
+                } else if(a[1] != b[1]) {
+                    return Integer.compare(a[1], b[1]);
+                } else {
+                    return Integer.compare(a[2], b[2]);
                 }
             });
+
             // for(int[] arr : list) {
             //     System.out.println(Arrays.toString(arr));
             // }
