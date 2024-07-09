@@ -1,4 +1,4 @@
-package codetree.intermidiate_mid.sum_of_three_num;
+package codetree.intermidiate_mid.hashmap.sum_of_three_num;
 
 import java.util.*;
 import java.io.*;
