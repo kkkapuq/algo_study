@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,9 +20,9 @@ public class BasicForm {
         Arrays.sort(arr);
         System.out.println("arr = " + Arrays.toString(arr));
 
-        // 내림차순
-        // wrapper 클래스로 변환 필요
+        // int[][] 형으로 내림차순
         Integer[] arr2 = Arrays.stream(arr).boxed().toArray(Integer[]::new);
+
         System.out.println("arr2 = " + Arrays.toString(arr2));
 
         /**
@@ -46,19 +47,24 @@ public class BasicForm {
         List<List<Integer>> arrToList = Arrays.stream(arr3)
             .map(row -> Arrays.stream(row).boxed().toList())
             .toList();
+
         arrToList.forEach(System.out::println);
 
+        // 2차원 리스트를 2차원 배열로 전환
+        List<List<Integer>> listToArr = List.of(
+            List.of(1, 2, 3, 4),
+            List.of(4, 3, 2, 1),
+            List.of(1, 3, 4, 2)
+        );
 
+        int[][] convertedArr = listToArr.stream()
+            .map(list -> list.stream().mapToInt(Integer::intValue).toArray())
+            .toArray(int[][]::new);
 
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(4);
-        list.add(2);
-        list.add(5);
-        list.add(7);
-        list.add(3);
+        Integer[][] IntegerArr = listToArr.stream()
+            .map(list -> list.toArray(new Integer[list.size()]))
+            .toArray(Integer[][]::new);
 
-
-
+        System.out.println("convertedArr = " + Arrays.deepToString(convertedArr));
     }
 }
