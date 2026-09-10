@@ -3,12 +3,11 @@ import java.util.*;
 class Solution {
     static List<Integer>[] graph;
     static int min;
-    
     public int solution(int n, int[][] wires) {
-        graph = new ArrayList[n+1];
         min = Integer.MAX_VALUE;
+        graph = new ArrayList[n+1];
         
-        for(int i = 1; i <= n; i++) {
+        for(int i = 1; i <= n; i++){
             graph[i] = new ArrayList<>();
         }
         
@@ -19,7 +18,7 @@ class Solution {
             graph[b].add(a);
         }
         
-        for(int i = 0; i < wires.length; i++) {
+        for(int i = 0; i < wires.length; i++){
             int a = wires[i][0];
             int b = wires[i][1];
             boolean[] visited = new boolean[n+1];
@@ -34,15 +33,15 @@ class Solution {
             graph[a].add(b);
             graph[b].add(a);
         }
+        
         return min;
     }
     
-    public int dfs(int v, boolean[] visited){
+    public int dfs(int v, boolean[] visited) {
         visited[v] = true;
         int cnt = 1;
-        
-        for(int next : graph[v]){
-            if(!visited[next]){
+        for(int next : graph[v]) {
+            if(!visited[next]) {
                 cnt += dfs(next, visited);
             }
         }
